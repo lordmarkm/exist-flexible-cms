@@ -37,40 +37,32 @@ public class GlobalExceptionHandler {
                 .withMessage(ex.getClass().getSimpleName()), HttpStatus.CONFLICT);
     }
 
-    @ExceptionHandler(MyntInvalidTokenException.class)
-    public ResponseEntity<OperationResult<String>> handleMyntInvalidTokenException(MyntInvalidTokenException ex) {
-        logError(ex);
-        return new ResponseEntity<>(new OperationResult<>(ex.getMessage())
-                .withStatus(HttpStatus.UNAUTHORIZED)
-                .withMessage(ex.getClass().getSimpleName()), HttpStatus.UNAUTHORIZED);
-    }
-
-    @ExceptionHandler(MyntIllegalArgumentException.class)
-    public ResponseEntity<OperationResult<String>> handleMyntIllegalArgumentException(MyntIllegalArgumentException ex) {
+    @ExceptionHandler(ExistIllegalArgumentException.class)
+    public ResponseEntity<OperationResult<String>> handleMyntIllegalArgumentException(ExistIllegalArgumentException ex) {
         logError(ex);
         return new ResponseEntity<>(new OperationResult<>(ex.getMessage())
                 .withStatus(HttpStatus.BAD_REQUEST)
                 .withMessage(ex.getClass().getSimpleName()), HttpStatus.BAD_REQUEST);
     }
 
-    @ExceptionHandler(MyntExistingDataException.class)
-    public ResponseEntity<OperationResult<String>> handleMyntDataAlreadyExistException(MyntExistingDataException ex) {
+    @ExceptionHandler(ExistExistingDataException.class)
+    public ResponseEntity<OperationResult<String>> handleMyntDataAlreadyExistException(ExistExistingDataException ex) {
         logError(ex);
         return new ResponseEntity<>(new OperationResult<>(ex.getMessage())
                 .withStatus(HttpStatus.CONFLICT)
                 .withMessage(ex.getClass().getSimpleName()), HttpStatus.CONFLICT);
     }
 
-    @ExceptionHandler(MyntNonExistentDataException.class)
-    public ResponseEntity<OperationResult<String>> handleMyntDataNotExistException(MyntNonExistentDataException ex) {
+    @ExceptionHandler(ExistNotFoundException.class)
+    public ResponseEntity<OperationResult<String>> handleMyntDataNotExistException(ExistNotFoundException ex) {
         logError(ex);
         return new ResponseEntity<>(new OperationResult<>(ex.getMessage())
                 .withStatus(HttpStatus.NOT_FOUND)
                 .withMessage(ex.getClass().getSimpleName()), HttpStatus.NOT_FOUND);
     }
 
-    @ExceptionHandler(MyntAbstractException.class)
-    public ResponseEntity<OperationResult<String>> handleAllMyntExceptions(MyntAbstractException ex) {
+    @ExceptionHandler(AbstractException.class)
+    public ResponseEntity<OperationResult<String>> handleAllMyntExceptions(AbstractException ex) {
         logError(ex);
         return new ResponseEntity<>(new OperationResult<>(ex.getMessage())
                 .withStatus(HttpStatus.INTERNAL_SERVER_ERROR)

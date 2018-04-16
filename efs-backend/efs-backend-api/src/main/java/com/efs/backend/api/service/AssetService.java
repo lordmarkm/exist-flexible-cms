@@ -1,6 +1,6 @@
 package com.efs.backend.api.service;
 
-import com.efs.backend.shared.dto.AssetInfo;
+import com.efs.backend.repo.backend.shared.dto.AssetInfo;
 
 public interface AssetService {
 

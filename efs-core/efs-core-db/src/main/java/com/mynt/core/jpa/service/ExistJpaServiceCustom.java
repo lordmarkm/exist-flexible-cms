@@ -22,7 +22,7 @@ import java.util.List;
  * @param <D> - DTO
  */
 @NoRepositoryBean
-public interface MyntJpaServiceCustom<E extends BaseEntity, D extends BaseInfo> {
+public interface ExistJpaServiceCustom<E extends BaseEntity, D extends BaseInfo> {
 
     D findOneInfo(Long id);
 

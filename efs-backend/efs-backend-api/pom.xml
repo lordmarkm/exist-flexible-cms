@@ -6,6 +6,7 @@
     <version>1.0</version>
   </parent>
   <artifactId>efs-backend-api</artifactId>
+  <name>Exist Flexible CMS :: Backend :: API</name>
 
   <dependencies>
     <dependency>
@@ -16,6 +17,16 @@
       <groupId>efs</groupId>
       <artifactId>efs-core-test</artifactId>
     </dependency>
+
+    <dependency>
+      <groupId>efs</groupId>
+      <artifactId>efs-backend-shared-dto</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>efs</groupId>
+      <artifactId>efs-backend-shared-client</artifactId>
+    </dependency>
+
     <dependency>
       <groupId>com.fasterxml.jackson.datatype</groupId>
       <artifactId>jackson-datatype-joda</artifactId>

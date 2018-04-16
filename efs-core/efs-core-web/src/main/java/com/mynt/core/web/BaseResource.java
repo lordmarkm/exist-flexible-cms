@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.mynt.core.jpa.model.BaseEntity;
-import com.mynt.core.jpa.service.MyntJpaServiceCustom;
+import com.mynt.core.jpa.service.ExistJpaServiceCustom;
 
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
@@ -28,7 +28,7 @@ import io.swagger.annotations.ApiImplicitParams;
  * @param <D> - DTO
  * @param <S> - Service
  */
-public abstract class BaseResource<D extends BaseInfo, S extends MyntJpaServiceCustom<? extends BaseEntity, D>> {
+public abstract class BaseResource<D extends BaseInfo, S extends ExistJpaServiceCustom<? extends BaseEntity, D>> {
 
     @Autowired
     protected S service;

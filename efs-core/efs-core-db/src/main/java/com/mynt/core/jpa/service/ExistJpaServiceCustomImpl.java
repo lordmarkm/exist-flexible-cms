@@ -36,10 +36,10 @@ import cz.jirutka.rsql.parser.ast.RSQLOperators;
  * @param <R> - Repo
  */
 @Transactional
-public abstract class MyntJpaServiceCustomImpl<E extends BaseEntity, D extends BaseInfo, R extends MyntJpaService<E>>
-    extends MappingService<E, D> implements MyntJpaServiceCustom<E, D> {
+public abstract class ExistJpaServiceCustomImpl<E extends BaseEntity, D extends BaseInfo, R extends ExistJpaService<E>>
+    extends MappingService<E, D> implements ExistJpaServiceCustom<E, D> {
 
-    private static final Logger LOG = LoggerFactory.getLogger(MyntJpaServiceCustomImpl.class);
+    private static final Logger LOG = LoggerFactory.getLogger(ExistJpaServiceCustomImpl.class);
 
     @Autowired
     protected R repo;

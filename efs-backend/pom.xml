@@ -7,12 +7,11 @@
   <version>1.0</version>
   <packaging>pom</packaging>
   <name>Exist Flexible CMS :: Backend</name>
-  <description>Payment gateway webapp for Mynt project</description>
 
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.0.1.RELEASE</version>
+    <version>1.5.7.RELEASE</version>
   </parent>
 
   <properties>
@@ -26,6 +25,7 @@
     <hibernate.version>5.2.10.Final</hibernate.version>
     <spring-cloud.version>1.3.5.RELEASE</spring-cloud.version>
     <dockerfile-maven-version>1.3.7</dockerfile-maven-version>
+    <jacoco.version>0.7.9</jacoco.version>
 
     <!--flyway config -->
     <flyway.version>4.2.0</flyway.version>
@@ -39,7 +39,7 @@
 
   <dependencyManagement>
     <dependencies>
-      <!-- Mynt Core -->
+      <!-- EFS Core -->
       <dependency>
         <groupId>efs</groupId>
         <artifactId>efs-core-web</artifactId>
@@ -62,7 +62,17 @@
         <scope>test</scope>
       </dependency>
 
-      <!-- Mynt Payment Gateway -->
+      <!-- EFS Backend Shared -->
+      <dependency>
+        <groupId>efs</groupId>
+        <artifactId>efs-backend-shared-dto</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>efs</groupId>
+        <artifactId>efs-backend-shared-client</artifactId>
+        <version>${project.version}</version>
+      </dependency>
 
       <!-- Swagger -->
       <dependency>
@@ -79,8 +89,9 @@
   </dependencyManagement>
 
   <modules>
-  <module>efs-api</module>
-  <module>efs-backend-api</module>
+    <module>efs-backend-api</module>
+    <module>efs-backend-shared</module>
+    <module>efs-backend-repo-generic</module>
   </modules>
 
   <build>

@@ -7,7 +7,7 @@ import org.springframework.data.repository.NoRepositoryBean;
 import com.mynt.core.jpa.model.BaseEntity;
 
 @NoRepositoryBean
-public interface MyntJpaService<E extends BaseEntity>
+public interface ExistJpaService<E extends BaseEntity>
     extends JpaRepository<E, Long>, QueryDslPredicateExecutor<E> {
 
 }

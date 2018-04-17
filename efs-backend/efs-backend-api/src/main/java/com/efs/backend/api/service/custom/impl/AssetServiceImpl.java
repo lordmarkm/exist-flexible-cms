@@ -9,7 +9,7 @@ import com.efs.backend.api.service.ProjectService;
 import com.efs.backend.shared.client.AssetClient;
 
 @Service
-public class AssertServiceImpl implements AssetService {
+public class AssetServiceImpl implements AssetService {
 
     @Autowired
     private ProjectService projectService;

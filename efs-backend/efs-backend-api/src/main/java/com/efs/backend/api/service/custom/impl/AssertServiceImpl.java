@@ -17,7 +17,7 @@ public class AssertServiceImpl implements AssetService {
     @Override
     public AssetInfo findOne(String projectCode, String assetCode) {
         AssetClient client = projectService.getAssetClient(projectCode);
-        return client.getAsset(assetCode);
+        return client.getAsset(assetCode).getBody();
     }
 
 }

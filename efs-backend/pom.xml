@@ -92,7 +92,7 @@
     <module>efs-backend-api</module>
     <module>efs-backend-shared</module>
     <module>efs-backend-repo-generic</module>
-      <module>efs-backend-repo-default</module>
+    <module>efs-backend-repo-default</module>
   </modules>
 
   <build>

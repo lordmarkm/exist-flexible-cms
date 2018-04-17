@@ -1,0 +1,67 @@
+endpoints:
+  shutdown:
+    enabled: true
+
+management:
+  security:
+    enabled: false
+
+server:
+  port: 8080
+  session:
+    timeout: 27000
+    cookie:
+       max-age: 31536000
+
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: false
+#          thread:
+#            timeoutInMilliseconds: 60000
+
+feign:
+  hystrix:
+    enabled: true
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost/efs_backend_api
+    username: root
+    password: 123qwe
+    driverClassName: com.mysql.cj.jdbc.Driver
+    connection-test-query: SELECT 1
+    max-active: 100
+    initial-size: 10
+    max-idle: 10
+    min-idle: 5
+    test-while-idle: true
+    test-on-borrow: true
+    validation-query: SELECT 1
+    time-between-eviction-runs-millis: 15000
+    min-evictable-idle-time-millis: 60000
+  jpa:
+    hibernate.ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    show-sql: false
+  messages:
+    basename: messages
+    encoding: UTF-8
+  http:
+    multipart:
+      enabled: true
+      max-file-size: 5242880KB
+      max-request-size: 5242880KB
+
+logging:
+  level:
+    ROOT: info
+    com.mynt: debug
+    xyz.mynt: debug
+  file: log/efs_backend_api.log
+
+flyway:
+  enabled: false
+  locations: classpath:/db/migration/mysql

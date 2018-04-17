@@ -1,12 +1,8 @@
-package com.mynt.core.web.handler;
+package com.efs.core.web.exceptionhandler;
 
-import com.mynt.core.dto.OperationResult;
-import com.mynt.core.web.FormValidationMessage;
-import com.mynt.core.web.exceptions.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.MessageSource;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
@@ -19,6 +15,13 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+import com.mynt.core.dto.OperationResult;
+import com.mynt.core.web.FormValidationMessage;
+import com.mynt.core.web.exceptions.AbstractException;
+import com.mynt.core.web.exceptions.ExistExistingDataException;
+import com.mynt.core.web.exceptions.ExistIllegalArgumentException;
+import com.mynt.core.web.exceptions.ExistNotFoundException;
+
 @ControllerAdvice
 @Order(Ordered.LOWEST_PRECEDENCE)
 public class GlobalExceptionHandler {
@@ -26,7 +29,6 @@ public class GlobalExceptionHandler {
     private static final Logger LOGGER = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
     @Autowired
-    @Qualifier("messages")
     private MessageSource messageSource;
 
     @ExceptionHandler(DataIntegrityViolationException.class)

@@ -1,4 +1,4 @@
-package com.mynt.core.web.handler;
+package com.efs.core.web.exceptionhandler;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

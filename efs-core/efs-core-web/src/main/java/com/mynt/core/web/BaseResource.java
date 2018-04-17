@@ -4,6 +4,9 @@ import static org.springframework.http.HttpStatus.OK;
 import static org.springframework.web.bind.annotation.RequestMethod.DELETE;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.mynt.core.dto.BaseInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -30,6 +33,8 @@ import io.swagger.annotations.ApiImplicitParams;
  */
 public abstract class BaseResource<D extends BaseInfo, S extends ExistJpaServiceCustom<? extends BaseEntity, D>> {
 
+    private static final Logger LOG = LoggerFactory.getLogger(BaseResource.class);
+
     @Autowired
     protected S service;
 
@@ -48,6 +53,7 @@ public abstract class BaseResource<D extends BaseInfo, S extends ExistJpaService
     public ResponseEntity<Page<D>> rqlSearch(
             @RequestParam(required = false) @ApiParam(value = "The search term, example: name==test;deleted==false") String term,
             Pageable page) {
+        LOG.debug("{}::rqlSearch({}, {})", this.getClass().getSimpleName(), term, page);
         return new ResponseEntity<>(service.rqlSearch(term, service.getFieldMapping(), page), OK);
     }
 
@@ -61,12 +67,14 @@ public abstract class BaseResource<D extends BaseInfo, S extends ExistJpaService
     @ApiOperation(value = "Perform a soft delete on this entity")
     @RequestMapping(value = "/{id}", method = DELETE)
     public ResponseEntity<D> delete(@PathVariable @ApiParam(value = "The id of the entity to delete") Long id) {
+        LOG.debug("{}::delete({})", this.getClass().getSimpleName(), id);
         return new ResponseEntity<>(service.deleteInfo(id), OK);
     }
 
     @ApiOperation(value = "Find a particular entity by ID")
     @RequestMapping(value = "/{id}", method = GET)
     public ResponseEntity<D> findOne(@PathVariable @ApiParam(value = "The id of the entity to query") Long id) {
+        LOG.debug("{}::findOne({})", this.getClass().getSimpleName(), id);
         return new ResponseEntity<>(service.findOneInfo(id), OK);
     }
 

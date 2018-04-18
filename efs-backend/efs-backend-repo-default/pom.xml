@@ -19,11 +19,60 @@
       <groupId>efs</groupId>
       <artifactId>efs-backend-shared-client</artifactId>
     </dependency>
+
+    <dependency>
+      <groupId>efs</groupId>
+      <artifactId>efs-core-dto</artifactId>
+    </dependency>
     <dependency>
       <groupId>efs</groupId>
       <artifactId>efs-core-web</artifactId>
+      <exclusions>
+        <exclusion>
+          <groupId>efs</groupId>
+          <artifactId>efs-core-jpa</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
+    <dependency>
+      <groupId>efs</groupId>
+      <artifactId>efs-core-mongo</artifactId>
+    </dependency>
+
   </dependencies>
+
+  <build>
+    <plugins>
+      <!-- make Executable jar -->
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+
+      <!-- Docker -->
+      <plugin>
+        <groupId>com.spotify</groupId>
+        <artifactId>dockerfile-maven-plugin</artifactId>
+        <version>${dockerfile-maven-version}</version>
+        <executions>
+          <execution>
+            <id>default</id>
+            <goals>
+              <goal>${docker.goal}</goal>
+              <goal>push</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <repository>exist/efs-backend-repo-default</repository>
+          <tag>${project.version}</tag>
+          <buildArgs>
+            <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
+          </buildArgs>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 
 
 </project>

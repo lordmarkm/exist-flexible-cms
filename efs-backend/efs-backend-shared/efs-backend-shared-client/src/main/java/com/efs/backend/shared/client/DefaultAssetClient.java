@@ -1,4 +1,4 @@
-package com.efs.backend.repo.def.client;
+package com.efs.backend.shared.client;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -6,17 +6,24 @@ import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.efs.backend.repo.backend.shared.dto.AssetInfo;
-import com.efs.backend.shared.client.AssetClient;
 
 @FeignClient(name = AssetClient.REPO_CODE_DEFAULT, fallback = DefaultAssetClient.DefaultAssetClientFallback.class)
+@RequestMapping("/asset")
 public interface DefaultAssetClient extends AssetClient {
 
-    @RequestMapping(value = "/asset", method = RequestMethod.GET, produces = "application/json")
-    ResponseEntity<AssetInfo> getAsset(String assetCode);
+    @Override
+    @RequestMapping(method = RequestMethod.GET)
+    ResponseEntity<AssetInfo> getAsset(@RequestParam("assetCode") String assetCode);
+
+    @Override
+    @RequestMapping(method = RequestMethod.POST, consumes = "application/json")
+    ResponseEntity<AssetInfo> saveAsset(@RequestBody AssetInfo asset);
 
     @Component
     class DefaultAssetClientFallback implements DefaultAssetClient {
@@ -25,7 +32,13 @@ public interface DefaultAssetClient extends AssetClient {
 
         @Override
         public ResponseEntity<AssetInfo> getAsset(String assetCode) {
-            LOG.error("Unable to connect to DefaultAssetClient::getAsset");
+            LOG.error("[FALLBACK] Unable to connect to DefaultAssetClient::getAsset");
+            return new ResponseEntity<>(null, HttpStatus.SERVICE_UNAVAILABLE);
+        }
+
+        @Override
+        public ResponseEntity<AssetInfo> saveAsset(AssetInfo asset) {
+            LOG.error("[FALLBACK] Unable to connect to DefaultAssetClient::saveAsset");
             return new ResponseEntity<>(null, HttpStatus.SERVICE_UNAVAILABLE);
         }
     }

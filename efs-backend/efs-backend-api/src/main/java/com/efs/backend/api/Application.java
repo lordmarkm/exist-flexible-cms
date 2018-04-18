@@ -7,7 +7,7 @@ import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.support.ResourceBundleMessageSource;
 
-import com.efs.backend.repo.def.client.DefaultAssetClient;
+import com.efs.backend.shared.client.DefaultAssetClient;
 
 @SpringBootApplication(scanBasePackages = {
     "com.efs.core",

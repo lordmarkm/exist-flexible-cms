@@ -2,6 +2,7 @@ package com.efs.backend.api.service.custom.impl;
 
 import com.efs.backend.repo.backend.shared.dto.AssetInfo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.efs.backend.api.service.AssetService;
@@ -15,9 +16,9 @@ public class AssetServiceImpl implements AssetService {
     private ProjectService projectService;
 
     @Override
-    public AssetInfo findOne(String projectCode, String assetCode) {
+    public ResponseEntity<AssetInfo> findOne(String projectCode, String assetCode) {
         AssetClient client = projectService.getAssetClient(projectCode);
-        return client.getAsset(assetCode).getBody();
+        return client.getAsset(assetCode);
     }
 
 }

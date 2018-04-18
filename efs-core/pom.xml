@@ -31,7 +31,7 @@
     <dependencies>
       <dependency>
         <groupId>efs</groupId>
-        <artifactId>efs-core-db</artifactId>
+        <artifactId>efs-core-jpa</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
@@ -114,8 +114,9 @@
     <module>efs-core-dto</module>
     <module>efs-core-test</module>
     <module>efs-core-web</module>
-    <module>efs-core-db</module>
+    <module>efs-core-jpa</module>
     <module>efs-core-util</module>
+    <module>efs-core-mongo</module>
   </modules>
 
   <build>

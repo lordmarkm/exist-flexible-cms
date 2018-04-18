@@ -1,6 +1,8 @@
 package com.efs.backend.repo.backend.shared.dto;
 
-public class AssetInfo {
+import com.mynt.core.dto.BaseMongoInfo;
+
+public class AssetInfo extends BaseMongoInfo {
 
     private String projectCode;
     private String assetCode;

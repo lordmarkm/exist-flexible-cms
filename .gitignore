@@ -13,6 +13,7 @@ lib
 bower_components
 libs
 node_modules
+data
 
 # Eclipse Ignores
 .classpath

@@ -12,11 +12,6 @@
   <dependencies>
     <dependency>
       <groupId>efs</groupId>
-      <artifactId>efs-backend-repo-default</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>efs</groupId>
       <artifactId>efs-backend-shared-dto</artifactId>
     </dependency>
     <dependency>
@@ -41,10 +36,6 @@
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>com.google.code.gson</groupId>
-      <artifactId>gson</artifactId>
     </dependency>
   </dependencies>
 

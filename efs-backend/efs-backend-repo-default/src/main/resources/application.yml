@@ -1,0 +1,23 @@
+endpoints:
+  shutdown:
+    enabled: true
+
+management:
+  security:
+    enabled: false
+
+server:
+  port: 8081
+
+spring:
+  data:
+    mongodb:
+      database: efs-backend-repo-default
+      uri: mongodb://192.168.99.100:27017
+
+logging:
+  level:
+    ROOT: info
+    com.efs: debug
+    com.netflix: debug
+  file: log/efs_backend_repo_default.log

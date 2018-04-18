@@ -6,8 +6,8 @@
     <artifactId>efs-core</artifactId>
     <version>1.0</version>
   </parent>
-  <artifactId>efs-core-db</artifactId>
-  <name>Exist Flexible CMS :: Core :: Database</name>
+  <artifactId>efs-core-jpa</artifactId>
+  <name>Exist Flexible CMS :: Core :: JPA</name>
 
   <dependencies>
     <dependency>

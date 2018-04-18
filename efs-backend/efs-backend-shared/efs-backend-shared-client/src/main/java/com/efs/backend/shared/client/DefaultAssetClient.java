@@ -20,7 +20,8 @@ public interface DefaultAssetClient extends AssetClient {
 
     @Override
     @RequestMapping(value = "/asset/find-by-page-code", method = RequestMethod.GET)
-    ResponseEntity<List<AssetInfo>> findByPageCode(String projectCode, String pageCode);
+    ResponseEntity<List<AssetInfo>> findByPageCode(@RequestParam("projectCode") String projectCode,
+            @RequestParam("pageCode") String pageCode);
 
     @Override
     @RequestMapping(value = "/asset", method = RequestMethod.GET)

@@ -7,6 +7,7 @@ import org.springframework.context.MessageSource;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
@@ -31,7 +32,7 @@ public class GlobalExceptionHandler {
     @Autowired
     private MessageSource messageSource;
 
-    @ExceptionHandler(DataIntegrityViolationException.class)
+    @ExceptionHandler({ DataIntegrityViolationException.class, DuplicateKeyException.class })
     public ResponseEntity<OperationResult<String>> handleDataIntegrityViolationException(DataIntegrityViolationException ex) {
         logError(ex);
         return new ResponseEntity<>(new OperationResult<>(ex.getMessage())

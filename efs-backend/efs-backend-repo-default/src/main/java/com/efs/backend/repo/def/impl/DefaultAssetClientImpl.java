@@ -37,8 +37,7 @@ public class DefaultAssetClientImpl implements DefaultAssetClient {
     @Override
     public ResponseEntity<AssetInfo> getAsset(String assetCode) {
         LOG.debug("DefaultAssetClientImpl::getAsset({})", assetCode);
-        Optional<Asset> asset = Optional.ofNullable(assetService.findOne(assetCode));
-
+        Optional<Asset> asset = assetService.findByAssetCode(assetCode);
         if (asset.isPresent()) {
             return new ResponseEntity<>(mapper.map(asset.get(), AssetInfo.class), OK);
         } else {

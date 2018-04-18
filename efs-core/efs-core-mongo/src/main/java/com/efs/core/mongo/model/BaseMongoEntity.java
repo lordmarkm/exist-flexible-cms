@@ -1,31 +1,25 @@
 package com.efs.core.mongo.model;
 
+import java.io.Serializable;
+
 import org.joda.time.DateTime;
-import org.mongodb.morphia.annotations.EntityListeners;
+import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
-import org.springframework.data.mongodb.core.mapping.event.AuditingEventListener;
+import org.springframework.data.annotation.Version;
 
-import com.efs.core.mongo.support.BaseMongoEntityListener;
+public class BaseMongoEntity implements Serializable {
 
-@EntityListeners({
-    AuditingEventListener.class, //this sets the dates
-    BaseMongoEntityListener.class //this sets createdby, updatedby
-})
-public class BaseMongoEntity {
+    private static final long serialVersionUID = 1L;
 
-    @Id
-    private String id;
-
-    @CreatedDate
-    private DateTime createdDate;
-
-    @LastModifiedDate
-    private DateTime updatedDate;
-
-    private String createdBy;
-    private String updatedBy;
+    @Id private String id;
+    @Version private Long version;
+    @CreatedDate private DateTime createdDate;
+    @LastModifiedDate private DateTime updatedDate;
+    @CreatedBy private String createdBy;
+    @LastModifiedBy private String updatedBy;
 
     public String getId() {
         return id;
@@ -65,6 +59,14 @@ public class BaseMongoEntity {
 
     public void setUpdatedBy(String updatedBy) {
         this.updatedBy = updatedBy;
+    }
+
+    public Long getVersion() {
+        return version;
+    }
+
+    public void setVersion(Long version) {
+        this.version = version;
     }
 
 }

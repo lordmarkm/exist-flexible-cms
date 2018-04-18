@@ -14,15 +14,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.efs.backend.repo.backend.shared.dto.AssetInfo;
 
 @FeignClient(name = AssetClient.REPO_CODE_DEFAULT, fallback = DefaultAssetClient.DefaultAssetClientFallback.class)
-@RequestMapping("/asset")
 public interface DefaultAssetClient extends AssetClient {
 
     @Override
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(value = "/asset", method = RequestMethod.GET)
     ResponseEntity<AssetInfo> getAsset(@RequestParam("assetCode") String assetCode);
 
     @Override
-    @RequestMapping(method = RequestMethod.POST, consumes = "application/json")
+    @RequestMapping(value = "/asset", method = RequestMethod.POST)
     ResponseEntity<AssetInfo> saveAsset(@RequestBody AssetInfo asset);
 
     @Component

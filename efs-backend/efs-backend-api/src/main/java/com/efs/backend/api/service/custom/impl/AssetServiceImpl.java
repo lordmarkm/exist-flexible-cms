@@ -21,4 +21,10 @@ public class AssetServiceImpl implements AssetService {
         return client.getAsset(assetCode);
     }
 
+    @Override
+    public ResponseEntity<AssetInfo> save(AssetInfo asset) {
+        AssetClient client = projectService.getAssetClient(asset.getProjectCode());
+        return client.saveAsset(asset);
+    }
+
 }

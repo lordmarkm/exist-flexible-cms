@@ -12,7 +12,7 @@ import com.efs.backend.shared.client.DefaultAssetClient;
 @SpringBootApplication(scanBasePackages = {
     "com.efs.core",
     "com.efs.backend.api",
-    "com.efs.backend.repo.def.client"
+    "com.efs.backend.shared.client"
 })
 @EnableFeignClients(clients = {
     DefaultAssetClient.class

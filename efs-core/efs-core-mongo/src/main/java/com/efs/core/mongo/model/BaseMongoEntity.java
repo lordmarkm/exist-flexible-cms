@@ -8,14 +8,12 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
-import org.springframework.data.annotation.Version;
 
 public class BaseMongoEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id private String id;
-    @Version private Long version;
     @CreatedDate private DateTime createdDate;
     @LastModifiedDate private DateTime updatedDate;
     @CreatedBy private String createdBy;
@@ -59,14 +57,6 @@ public class BaseMongoEntity implements Serializable {
 
     public void setUpdatedBy(String updatedBy) {
         this.updatedBy = updatedBy;
-    }
-
-    public Long getVersion() {
-        return version;
-    }
-
-    public void setVersion(Long version) {
-        this.version = version;
     }
 
 }

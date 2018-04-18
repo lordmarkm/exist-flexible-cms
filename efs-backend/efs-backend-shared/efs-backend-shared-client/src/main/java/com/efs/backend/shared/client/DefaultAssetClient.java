@@ -1,5 +1,7 @@
 package com.efs.backend.shared.client;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cloud.netflix.feign.FeignClient;
@@ -15,6 +17,10 @@ import com.efs.backend.repo.backend.shared.dto.AssetInfo;
 
 @FeignClient(name = AssetClient.REPO_CODE_DEFAULT, fallback = DefaultAssetClient.DefaultAssetClientFallback.class)
 public interface DefaultAssetClient extends AssetClient {
+
+    @Override
+    @RequestMapping(value = "/asset/find-by-page-code", method = RequestMethod.GET)
+    ResponseEntity<List<AssetInfo>> findByPageCode(String projectCode, String pageCode);
 
     @Override
     @RequestMapping(value = "/asset", method = RequestMethod.GET)
@@ -37,6 +43,12 @@ public interface DefaultAssetClient extends AssetClient {
 
         @Override
         public ResponseEntity<AssetInfo> saveAsset(AssetInfo asset) {
+            LOG.error("[FALLBACK] Unable to connect to DefaultAssetClient::saveAsset");
+            return new ResponseEntity<>(null, HttpStatus.SERVICE_UNAVAILABLE);
+        }
+
+        @Override
+        public ResponseEntity<List<AssetInfo>> findByPageCode(String projectCode, String pageCode) {
             LOG.error("[FALLBACK] Unable to connect to DefaultAssetClient::saveAsset");
             return new ResponseEntity<>(null, HttpStatus.SERVICE_UNAVAILABLE);
         }

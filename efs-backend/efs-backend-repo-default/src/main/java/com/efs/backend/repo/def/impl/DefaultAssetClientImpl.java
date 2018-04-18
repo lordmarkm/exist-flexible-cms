@@ -2,7 +2,9 @@ package com.efs.backend.repo.def.impl;
 
 import static org.springframework.http.HttpStatus.*;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.dozer.Mapper;
 import org.slf4j.Logger;
@@ -43,6 +45,13 @@ public class DefaultAssetClientImpl implements DefaultAssetClient {
         } else {
             return new ResponseEntity<>(null, NOT_FOUND);
         }
+    }
+
+    @Override
+    public ResponseEntity<List<AssetInfo>> findByPageCode(String projectCode, String pageCode) {
+        List<Asset> assets = assetService.findByProjectCodeAndPageCode(projectCode, pageCode);
+        List<AssetInfo> dtos = assets.stream().map(a -> mapper.map(a, AssetInfo.class)).collect(Collectors.toList());
+        return new ResponseEntity<>(dtos, OK);
     }
 
 }

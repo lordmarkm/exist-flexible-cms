@@ -27,9 +27,8 @@
     </dependency>
 
     <dependency>
-      <groupId>mynt</groupId>
-      <artifactId>mynt-core-test</artifactId>
-      <version>1.0</version>
+      <groupId>efs</groupId>
+      <artifactId>efs-core-test</artifactId>
     </dependency>
 
     <dependency>

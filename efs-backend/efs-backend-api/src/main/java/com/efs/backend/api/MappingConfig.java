@@ -1,5 +1,6 @@
 package com.efs.backend.api;
 
+import com.efs.core.dto.BaseInfo;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.joda.JodaModule;
@@ -9,7 +10,6 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonPrimitive;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
-import com.mynt.core.dto.BaseInfo;
 import com.mynt.core.jpa.model.BaseEntity;
 import com.mynt.core.util.DateUtil;
 

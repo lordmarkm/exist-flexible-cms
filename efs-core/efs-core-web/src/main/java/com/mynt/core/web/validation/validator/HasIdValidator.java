@@ -1,6 +1,6 @@
 package com.mynt.core.web.validation.validator;
 
-import com.mynt.core.dto.BaseInfo;
+import com.efs.core.dto.BaseInfo;
 import com.mynt.core.web.validation.HasId;
 
 import javax.validation.ConstraintValidator;

@@ -16,7 +16,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import com.mynt.core.dto.OperationResult;
+import com.efs.core.dto.OperationResult;
 import com.mynt.core.web.FormValidationMessage;
 import com.mynt.core.web.exceptions.AbstractException;
 import com.mynt.core.web.exceptions.ExistExistingDataException;

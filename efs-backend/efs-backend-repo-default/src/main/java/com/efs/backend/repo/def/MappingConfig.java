@@ -14,6 +14,7 @@ import org.joda.time.format.ISODateTimeFormat;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.efs.core.dto.BaseMongoInfo;
 import com.efs.core.mongo.model.BaseMongoEntity;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -24,7 +25,6 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonPrimitive;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
-import com.mynt.core.dto.BaseMongoInfo;
 import com.mynt.core.util.DateUtil;
 
 @Configuration

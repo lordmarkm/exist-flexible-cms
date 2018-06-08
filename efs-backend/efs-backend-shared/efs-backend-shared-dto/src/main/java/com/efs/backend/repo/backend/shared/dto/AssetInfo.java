@@ -2,7 +2,7 @@ package com.efs.backend.repo.backend.shared.dto;
 
 import org.springframework.core.style.ToStringCreator;
 
-import com.mynt.core.dto.BaseMongoInfo;
+import com.efs.core.dto.BaseMongoInfo;
 
 public class AssetInfo extends BaseMongoInfo {
 

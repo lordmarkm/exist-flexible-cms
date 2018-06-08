@@ -1,4 +1,4 @@
-package com.mynt.core.dto;
+package com.efs.core.dto;
 
 import org.joda.time.DateTime;
 import org.springframework.core.style.ToStringCreator;

@@ -1,7 +1,7 @@
 package com.mynt.core.jpa.service;
 
+import com.efs.core.dto.BaseInfo;
 import com.google.common.collect.ImmutableMap;
-import com.mynt.core.dto.BaseInfo;
 import com.mynt.core.jpa.model.BaseEntity;
 import com.querydsl.core.types.OrderSpecifier;
 import com.querydsl.core.types.Path;

@@ -1,4 +1,4 @@
-package com.mynt.core.dto;
+package com.efs.core.dto;
 
 import org.springframework.http.HttpStatus;
 

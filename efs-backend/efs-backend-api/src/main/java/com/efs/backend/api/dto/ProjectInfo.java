@@ -1,6 +1,6 @@
 package com.efs.backend.api.dto;
 
-import com.mynt.core.dto.BaseInfo;
+import com.efs.core.dto.BaseInfo;
 
 public class ProjectInfo extends BaseInfo {
 

@@ -1,6 +1,7 @@
 package com.efs.core.jpa.service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 import org.apache.commons.lang3.StringUtils;
@@ -48,11 +49,11 @@ public abstract class ExistJpaServiceCustomImpl<E extends BaseEntity, D extends 
     protected TaskExecutor taskExecutor;
 
     public D findOneInfo(Long id) {
-        return toDto(repo.findOne(id));
+        return toDto(repo.findById(id).get());
     }
 
     public D findOneInfo(Predicate p) {
-        return toDto(repo.findOne(p));
+        return toDto(repo.findOne(p).get());
     }
 
     public D saveInfo(D dto) {
@@ -64,11 +65,11 @@ public abstract class ExistJpaServiceCustomImpl<E extends BaseEntity, D extends 
     }
 
     public List<D> saveInfo(Iterable<D> dtos) {
-        return toDto(repo.save(toEntity(dtos)));
+        return toDto(repo.saveAll(toEntity(dtos)));
     }
 
     public List<E> saveInfoAndGetEntity(Iterable<D> dtos) {
-        return repo.save(toEntity(dtos));
+        return repo.saveAll(toEntity(dtos));
     }
 
     public Page<D> pageInfo(Pageable page) {
@@ -88,9 +89,9 @@ public abstract class ExistJpaServiceCustomImpl<E extends BaseEntity, D extends 
 
     @Override
     public D deleteInfo(Long id) {
-        E entity = repo.findOne(id);
-        entity.setDeleted(true);
-        return toDto(entity);
+        Optional<E> entity = repo.findById(id);
+        entity.get().setDeleted(true);
+        return toDto(entity.get());
     }
 
     @Override
@@ -142,7 +143,7 @@ public abstract class ExistJpaServiceCustomImpl<E extends BaseEntity, D extends 
 
     @Override
     public void purgeEntity(Iterable<D> dtos) {
-        repo.delete(toEntity(dtos));
+        repo.deleteAll(toEntity(dtos));
     }
 
     protected BooleanExpression composePredicate(String term, ImmutableMap<String, Path<?>> fieldMapping) {

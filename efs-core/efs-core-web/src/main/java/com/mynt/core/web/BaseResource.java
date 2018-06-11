@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.efs.core.dto.BaseInfo;
-import com.mynt.core.jpa.model.BaseEntity;
-import com.mynt.core.jpa.service.ExistJpaServiceCustom;
+import com.efs.core.jpa.model.BaseEntity;
+import com.efs.core.jpa.service.ExistJpaServiceCustom;
 
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;

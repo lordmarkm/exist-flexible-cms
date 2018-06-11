@@ -3,7 +3,7 @@ package com.efs.backend.api.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
-import com.mynt.core.jpa.model.BaseEntity;
+import com.efs.core.jpa.model.BaseEntity;
 
 @Entity(name = "project")
 public class Project extends BaseEntity {

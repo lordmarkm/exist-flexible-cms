@@ -1,4 +1,4 @@
-package com.mynt.core.jpa.rql;
+package com.efs.core.jpa.rql;
 
 import com.google.common.collect.ImmutableMap;
 import com.querydsl.core.types.Path;

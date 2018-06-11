@@ -1,4 +1,4 @@
-package com.mynt.core.jpa.model;
+package com.efs.core.jpa.model;
 
 import java.io.Serializable;
 

@@ -1,10 +1,10 @@
-package com.mynt.core.jpa.service;
+package com.efs.core.jpa.service;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.querydsl.QueryDslPredicateExecutor;
 import org.springframework.data.repository.NoRepositoryBean;
 
-import com.mynt.core.jpa.model.BaseEntity;
+import com.efs.core.jpa.model.BaseEntity;
 
 @NoRepositoryBean
 public interface ExistJpaService<E extends BaseEntity>

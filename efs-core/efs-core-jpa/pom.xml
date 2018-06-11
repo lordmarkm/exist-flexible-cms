@@ -32,6 +32,12 @@
       <artifactId>guava</artifactId>
     </dependency>
 
+    <!-- MySQL -->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+    </dependency>
+
     <!-- Joda -->
     <dependency>
       <groupId>joda-time</groupId>
@@ -79,7 +85,7 @@
               <outputDirectory>target/generated-sources/java</outputDirectory>
               <processor>com.querydsl.apt.jpa.JPAAnnotationProcessor</processor>
               <includes>
-                <include>com.mynt.core.jpa.model</include>
+                <include>com.efs.core.jpa.model</include>
               </includes>
             </configuration>
           </execution>

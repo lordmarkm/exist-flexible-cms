@@ -1,4 +1,4 @@
-package com.mynt.core.jpa.rql;
+package com.efs.core.jpa.rql;
 
 import cz.jirutka.rsql.parser.ast.ComparisonOperator;
 

@@ -1,4 +1,4 @@
-package com.mynt.core.jpa.service;
+package com.efs.core.jpa.service;
 
 import java.util.List;
 
@@ -6,8 +6,8 @@ import org.dozer.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.GenericTypeResolver;
 
+import com.efs.core.jpa.model.BaseEntity;
 import com.google.common.collect.Lists;
-import com.mynt.core.jpa.model.BaseEntity;
 
 /**
  *

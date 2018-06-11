@@ -15,8 +15,8 @@ import com.efs.backend.api.service.ProjectService;
 import com.efs.backend.api.service.custom.ProjectServiceCustom;
 import com.efs.backend.shared.client.AssetClient;
 import com.efs.backend.shared.client.DefaultAssetClient;
+import com.efs.core.jpa.service.ExistJpaServiceCustomImpl;
 import com.google.common.collect.Maps;
-import com.mynt.core.jpa.service.ExistJpaServiceCustomImpl;
 import com.mynt.core.web.exceptions.ExistNotFoundException;
 
 public class ProjectServiceCustomImpl extends ExistJpaServiceCustomImpl<Project, ProjectInfo, ProjectService>

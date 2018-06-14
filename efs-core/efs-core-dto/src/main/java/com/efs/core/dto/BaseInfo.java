@@ -3,6 +3,8 @@ package com.efs.core.dto;
 import org.joda.time.DateTime;
 import org.springframework.core.style.ToStringCreator;
 
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  *
  * @author mbmartinez, Sep 27, 2017
@@ -10,12 +12,22 @@ import org.springframework.core.style.ToStringCreator;
  */
 public class BaseInfo {
 
+    @ApiModelProperty(readOnly = true)
     private Long id;
 
+    @ApiModelProperty(readOnly = true)
     private DateTime createdDate;
+
+    @ApiModelProperty(hidden = true, readOnly = true)
     private DateTime updatedDate;
+
+    @ApiModelProperty(hidden = true, readOnly = true)
     private String createdBy;
+
+    @ApiModelProperty(hidden = true, readOnly = true)
     private String updatedBy;
+
+    @ApiModelProperty(value = "false")
     private boolean deleted;
 
     @Override
